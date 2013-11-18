@@ -1,0 +1,50 @@
+#!/bin/bash
+$src_folder=../src
+
+cd build
+make clean
+rm -r CMakeFiles/
+rm cmake_install.cmake Makefile CMakeCache.txt 
+
+echo -e '\E[35m'"\033[1m Install being process... "
+echo -e '\E[36m'"\033[1m"
+cmake ../
+tput sgr0
+if [[ $? != 1  ]] ; then
+    echo -e '\E[33m'"\033[1m"
+    make
+    if [[ $? != 1  ]] ; then
+	echo
+	echo -e '\E[31m'"\033[1m Install succeded  \033[0m"
+	
+	echo 
+	echo "For execute the project in terminal mode: type terminal [+ arguments]"
+	echo "For execute the project in Graphical mode: type g"
+	echo "for do not execute the project and execut it later juste press enter button"
+	rm ../ichimanyenGraphicMode
+	rm ../ichimanyenTerminalMode
+	ln ../bin/ichimanyenide ../ichimanyenGraphicMode
+	ln ../bin/game ../ichimanyenTerminalMode
+	
+	cd ../bin
+	read choice
+	case  $choice in 
+	    "terminal"*)
+	    ../ichimanyenTerminalMode `echo $choice | cut -d\  -f1 --complement`
+	    ;;
+	    "g") 
+	    ../ichimanyenGraphicMode
+	    ;;
+	    *)
+	    echo "You can execute the project by typping the following command :"
+	    echo "../ichimanyenGraphicMode"
+	    echo "../ichimanyenTerminalMode"
+	    exit 0;
+	    ;;
+	    esac;
+    else
+	echo
+	echo -e '\E[31m'"\030[1m Install failed  \033[0m"
+    fi;
+fi;
+exit 0;

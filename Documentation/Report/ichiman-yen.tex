@@ -1,0 +1,172 @@
+
+%######################################### Packages and new functions definitions ###########################################%
+\documentclass[11pt]{sample}
+\usepackage{pslatex}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{CJK}
+\newcommand\japonais[1]{\begin{CJK*}{UTF8}{song}#1\end{CJK*}}
+\usepackage{fancybox}
+\usepackage{a4wide}
+\usepackage[toc]{appendix}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{graphics}
+
+\graphicspath{{./images/}}
+
+\bibliographystyle{prsty}
+
+\renewcommand{\algorithmicrequire} {\textbf{\textsc{Entrées:}}}
+\renewcommand{\algorithmicensure}  {\textbf{\textsc{Sorties:}}}
+\renewcommand{\algorithmicwhile}   {\textbf{Tant Que}}
+\renewcommand{\algorithmicdo}      {\textbf{faire}}
+\renewcommand{\algorithmicendwhile}{\textbf{Fin tant que}}
+\renewcommand{\algorithmicend}     {\textbf{Fin}}
+\renewcommand{\algorithmicif}      {\textbf{Si}}
+\renewcommand{\algorithmicendif}   {\textbf{Fin Si}}
+\renewcommand{\algorithmicelse}    {\textbf{Sinon}}
+\renewcommand{\algorithmicthen}    {\textbf{Alors}}
+\renewcommand{\algorithmicfor}     {\textbf{Pour}}
+\renewcommand{\algorithmicforall}  {\textbf{Pour tout}}
+\renewcommand{\algorithmicdo}      {\textbf{Faire}}
+\renewcommand{\algorithmicendfor}  {\textbf{Fin pour}}
+\renewcommand{\algorithmicloop}    {\textbf{Boucler}}
+\renewcommand{\algorithmicendloop} {\textbf{Fin boucle}}
+\renewcommand{\algorithmicrepeat}  {\textbf{Répéter}}
+\renewcommand{\algorithmicuntil}   {\textbf{Jusqu'à}}
+
+\floatname{algorithm}{Algorithme}
+
+\let\mylistof\listof
+\renewcommand\listof[2]{\mylistof{algorithm}{List of algorithm}}
+
+\makeatletter
+\providecommand*{\toclevel@algorithm}{0}
+\makeatother
+\makeatletter
+\def\clap#1{\hbox to 0pt{\hss #1\hss}}%
+\def\ligne#1{%
+  \hbox to \hsize{%
+    \vbox{\centering #1}}}%
+\def\haut#1#2#3#4{%
+  \hbox to \hsize{%
+    \rlap{\vtop{\centering #1}}%
+    \rlap{\vtop{\centering #2}}%
+    \clap{\vtop{\centering #3}}%
+    \llap{\vtop{\centering #4}}}}%
+\def\bas#1#2#3{%
+  \hbox to \hsize{%
+    \rlap{\vbox{\raggedright #1}}%
+    \hss
+    \clap{\vbox{\centering #2}}%
+    \hss
+    \llap{\vbox{\raggedleft #3}}}}%
+\def\maketitle{%
+  \thispagestyle{empty}\vbox to \vsize{%
+    \haut{}{\@blurb}{}
+    \vfill
+    \vspace{4cm}
+    \ligne{\Large \@title}
+    \vspace{5mm}
+    \ligne{\Large \@author}
+       \vspace{1cm}
+    \vfill
+    \vfill
+    \bas{}{\@location, \@date\newline}{}
+    }%
+  \cleardoublepage
+  }
+\def\date#1{\def\@date{#1}}
+\def\author#1{\def\@author{#1}}
+\def\title#1{\def\@title{#1}}
+\def\location#1{\def\@location{#1}}
+\def\blurb#1{\def\@blurb{#1}}
+\def\email#1{\def\@email{#1}}
+\def\logo#1{\def\includegraphics[height=3\baselineskip]{#1}}
+\date{\today}
+\author{}
+\title{}
+\location{\japonais{一関高専}}
+\blurb{}
+\email{steeve.vandecappelle@free.fr}
+\makeatother
+  \title{\begin{Huge}\textcolor{blue}{\japonais{一万円}}\end{Huge}}
+  \author{Vandecappelle  \textsc{Steeve} }
+  \date{\japonais{2009年　四月から　六月まで}}
+  \location{\japonais{一関高専}}
+  %\includegraphics[height=3\baselineskip]{iutaustl.jpg}
+  \blurb{%
+  %\includegraphics[height=3\baselineskip]{iutaustl.jpg}\\
+  \hspace{1mm}\includegraphics[height=3\baselineskip]{iutaustl.jpg}\hspace{100mm}\includegraphics[height=3\baselineskip]{ichinoseki-koosen.jpg}\\
+    Insititut Universitaire de Lille 1 \\
+    \japonais{一関高専} \\[1em]
+    \japonais{研修の　レポート}\\
+    \japonais{小保方先生}\\
+  }%
+  
+  
+  
+  
+  
+  
+  
+  %####################################################### Beginning document #########################################################%
+\begin{document}
+\maketitle
+\newpage
+\strut
+\newpage
+\startcontents[sections]
+%########################################################## Contents ############################################################%
+\section*{\japonais{綱領}} 
+\printcontents[sections]{l}{1}{\setcounter{tocdepth}{2}}
+\newpage
+
+%####################################################### Thanks Section #########################################################%
+\section*{\japonais{礼状}\markboth{thanks}{thanks}}
+\addcontentsline{toc}{section}{\protect\numberline{}thanks} 
+\japonais{まず　私は　一関高専の　こうちょうに　おれい　を　いいたい。　そして　私の　チューター　小保方先生　
+\\みなさんの先生が　私を　たすけてくれました。
+\\それに　私は　5Sの　学生に　おれい　を　いいたい。
+}
+
+
+
+
+\newpage
+%###################################################### Abstract Section ########################################################%
+\section*{\japonais{抄録}\markboth{Abstract}{Abstract}}
+\addcontentsline{toc}{section}{\protect\numberline{}Abstract} 
+\japonais{この　けんしゅうは　私の二年のだいがくの　まとめです。\\
+私の　けんきゅうに 一関の先生は　期待していました。
+\\
+この　けんしゅうの　さいしゅう　もくてきは　グラフィック　アプリケーションの　一万円ゲム　作りました。
+私は　この　　アプリケーションの　プログラムを　考えました
+
+
+}
+
+
+
+\newpage
+%###################################################### Documents Section #######################################################%
+\section*{\japonais{付録}\markboth{Aditional documents}{Aditional documents}}
+\addcontentsline{toc}{section}{\protect\numberline{}Aditional documents} 
+\appendix
+\newpage
+
+
+%################################################### Extern sources Section #####################################################%
+\section*{\japonais{リンックと}\markboth{links}{links}}
+\addcontentsline{toc}{section}{\protect\numberline{}links} 
+\japonais{日仏辞典：} http://www.dictionnaire-japonais.com/
+
+
+
+
+
+
+\end{document}
